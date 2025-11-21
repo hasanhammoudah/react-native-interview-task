@@ -1,9 +1,9 @@
 # Login Note:
 ## You can test the app using the following demo accounts:
 
-## Username: admin — Password: 12345
+ Username: admin — Password: 12345
 
-## Username: guest — Password: guest123
+ Username: guest — Password: guest123
 
 # Welcome to your Expo app 👋
 
