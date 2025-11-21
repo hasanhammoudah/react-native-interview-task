@@ -1,5 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import {
   StyleSheet,
@@ -8,6 +8,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { AuthService } from "../services/AuthService";
+
+
 export default function LoginScreen() {
   const navigation = useNavigation();
   const [username, setUsername] = useState("");
@@ -30,7 +33,7 @@ export default function LoginScreen() {
     if (formError) setFormError("");
   };
 
-  const handleLogin = () => {
+  const handleLogin = () => {    
     setUsernameError("");
     setPasswordError("");
     setFormError("");
@@ -53,8 +56,14 @@ export default function LoginScreen() {
       return;
     }
 
-    if (username === "admin" && password === "12345") {
-      navigation.replace("Marketplace", { username });
+    const result = AuthService.login(username,password);
+      if (!result.ok) {
+      alert(result.error);
+      return;
+    }
+    const user = result.user;
+    if (result) {
+      navigation.replace("Marketplace", { username:user.username });
     } else {
       alert("Invalid credentials. Please try again.");
     }

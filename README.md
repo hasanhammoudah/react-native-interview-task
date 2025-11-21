@@ -1,3 +1,10 @@
+# Login Note:
+## You can test the app using the following demo accounts:
+
+## Username: admin — Password: 12345
+
+## Username: guest — Password: guest123
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
